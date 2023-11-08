@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "Mindless Browsing Killer",
+    "version": "1.0",
+    "permissions": ["tabs", "storage"],
+    "action": {},
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
