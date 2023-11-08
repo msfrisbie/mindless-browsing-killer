@@ -3,6 +3,23 @@
 // Array of URLs to check against. You can add more URLs here.
 const URLS = ['linkedin.com', 'facebook.com', 'news.ycombinator.com', 'reddit.com'];
 
+// This function is called when the alarm goes off
+function handleAlarm() {
+    console.log('Alarm went off!');
+    // You can add more functionality here to perform when the alarm executes
+    chrome.storage.local.set({ 'ENABLED': true }, function () {
+        updateActionButton(true);
+    });
+
+}
+
+// This sets up the listener for when the alarm goes off
+chrome.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name === 'myAlarm') {
+        handleAlarm();
+    }
+});
+
 function updateActionButton(enabled) {
     if (enabled) {
         chrome.action.setBadgeText({ text: "ON" });
@@ -10,6 +27,7 @@ function updateActionButton(enabled) {
     } else {
         chrome.action.setBadgeText({ text: "OFF" });
         chrome.action.setBadgeBackgroundColor({ color: '#777777' });
+        chrome.alarms.create('myAlarm', { delayInMinutes: 3 });
     }
 }
 
