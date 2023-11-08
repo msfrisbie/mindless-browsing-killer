@@ -1,7 +1,7 @@
 // background.js
 
 // Array of URLs to check against. You can add more URLs here.
-const URLS = ['linkedin.com', 'facebook.com', 'news.ycombinator.com', 'reddit.com', 'twitter.com', 'x.com'];
+const URLS = ['linkedin.com', 'facebook.com', 'news.ycombinator.com', 'reddit.com', 'twitter.com', 'x.com', 'espn.com'];
 
 // This function is called when the alarm goes off
 function handleAlarm() {
